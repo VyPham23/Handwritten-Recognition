@@ -41,7 +41,7 @@ def recognize():
 
         prediction = model.predict(np.expand_dims(image_prediction, axis=0))[0]
         ind = (-prediction).argsort()[:1]
-        latex = [classes[x] for x in ind]
+        latex = [classes[x] for x in ind][0]
 
         return jsonify({
             'prediction': str(latex),
